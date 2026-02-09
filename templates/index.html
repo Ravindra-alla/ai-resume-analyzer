@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Adding FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container fade-in">
+        <div class="glass-card">
+            <h1><i class="fas fa-robot"></i> Resume AI Matcher</h1>
+
+            {% if error %}
+            <div
+                style="background: rgba(255, 107, 107, 0.2); border: 1px solid #ff6b6b; color: #ffcccc; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center;">
+                <i class="fas fa-exclamation-circle"></i> {{ error }}
+            </div>
+            {% endif %}
+
+            <form action="/analyze" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="resume">Upload Resume (PDF)</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" name="resume" id="resume" accept=".pdf" required>
+                        <div class="file-upload-text">
+                            <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                            <br>
+                            <span>Drag & Drop or Click to Upload</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="job_description">Job Description</label>
+                    <textarea name="job_description" id="job_description" required
+                        placeholder="Paste the complete job description here..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Analyze Match <i class="fas fa-search-dollar"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
