@@ -71,6 +71,6 @@ def analyze():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    # For local testing you can set debug=True.
+    # For production, use a WSGI server (e.g. gunicorn) and import `app` as `app:app`.
+    app.run(host="0.0.0.0", port=5000, debug=False)
