@@ -42,6 +42,8 @@ Visit http://localhost:5000 in your browser.
 
 Refer to [deployment.md](deployment.md) for instructions, including Render-specific steps.
 
+> **Note:** For production hosting (Render, Heroku, etc.) you’ll need a WSGI server like `gunicorn`. Make sure `gunicorn` is added to `requirements.txt` before deploying.
+
 ## Project Structure
 
 - `app.py` &mdash; Flask application entry point

@@ -52,7 +52,8 @@ Render is a simple platform to host Python applications. Follow these steps:
    ```bash
    gunicorn app:app
    ```
-   (ensure `gunicorn` is listed in `requirements.txt`)
+   
+   > **Note:** Render (and other hosting platforms) require a production server like `gunicorn`. Make sure `gunicorn` is included in `requirements.txt` as shown below.
 7. Add any required environment variables in the **Environment** section (e.g., `SECRET_KEY`).
 8. Click **Create Web Service**. Render will build and deploy the app automatically.
 9. Once deployed, your app will be available at the provided Render URL.
